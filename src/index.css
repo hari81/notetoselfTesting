@@ -1,0 +1,12 @@
+body {
+  padding: 5%;
+  text-align: center;
+}
+.note {
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  font-style: italic;
+  text-align: left;
+  padding: 8px;
+  margin: 30px;
+}
