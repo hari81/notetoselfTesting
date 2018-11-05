@@ -55,7 +55,7 @@ class App extends Component {
 
         </Form>
         <hr />
-        <Button onClick={() => this.clear()}>Clear Notes</Button>
+        <Button className='btn' onClick={() => this.clear()}>Clear Notes</Button>
       </div>
     );
   }
