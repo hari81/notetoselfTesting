@@ -8,7 +8,7 @@ describe('App', () => {
   let app = mount(<App />);
 
   it('renders the App title', () => {
-    console.log(app.debug());
+    // console.log(app.debug());
     expect(app.find('h2').text()).toEqual('Note to self');
   });
 
@@ -39,8 +39,21 @@ describe('App', () => {
       beforeEach(() => {
         app.find('.btn').at(0).simulate('click');
       });
+      afterEach(() => {
+        app.find('.btn').at(1).simulate('click');
+      });
       it('adds the new to state', () => {
         expect(app.state().notes[0].text).toEqual(testNote);
+      });
+      describe('and remounting the component', () => {
+        let app2;
+        beforeEach(() => {
+          app2 = mount(<App />);
+        });
+        it('reads the stored note cookis', () => {
+          console.log(app2.state());
+          expect(app2.state().notes).toEqual([{text: testNote}]);
+        });
       });
       describe('add clicking the clear button', () => {
         beforeEach(() => {
